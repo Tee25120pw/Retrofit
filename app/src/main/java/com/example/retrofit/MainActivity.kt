@@ -27,28 +27,28 @@ class MainActivity : AppCompatActivity() {
 
         getMyData()
     }
-    private fun getMyData() {
-        val retrofitBuilder = Retrofit.Builder()
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(Base_Url)
-            .build()
-            .create(ApiInterface::class.java)
-
-        val retrofitData = retrofitBuilder.getData()
-
-        retrofitData.enqueue(object : Callback<List<MyDataItem>?> {
-            override fun onResponse(call: Call<List<MyDataItem>?>, response: Response<List<MyDataItem>?>) {
-                val responseBody = response.body()!!
-
-                myAdapter = MyAdapter(baseContext, responseBody)
-                myAdapter.notifyDataSetChanged()
-                recycleview_users.adapter = myAdapter
-            }
-
-            override fun onFailure(call: Call<List<MyDataItem>?>, t: Throwable) {
-                d("MainActivity", "onFailure: " + t.message)
-            }
-        })
-    }
+//    private fun getMyData() {
+//        val retrofitBuilder = Retrofit.Builder()
+//            .addConverterFactory(GsonConverterFactory.create())
+//            .baseUrl(Base_Url)
+//            .build()
+//            .create(ApiInterface::class.java)
+//
+//        val retrofitData = retrofitBuilder.getData()
+//
+//        retrofitData.enqueue(object : Callback<List<MyDataItem>?> {
+//            override fun onResponse(call: Call<List<MyDataItem>?>, response: Response<List<MyDataItem>?>) {
+//                val responseBody = response.body()!!
+//
+//                myAdapter = MyAdapter(baseContext, responseBody)
+//                myAdapter.notifyDataSetChanged()
+//                recycleview_users.adapter = myAdapter
+//            }
+//
+//            override fun onFailure(call: Call<List<MyDataItem>?>, t: Throwable) {
+//                d("MainActivity", "onFailure: " + t.message)
+//            }
+//        })
+//    }
 
 }
