@@ -11,9 +11,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 open class ViewModel  : ViewModel() {
-     fun getMyData() {
-        lateinit var myAdapter: MyAdapter
 
+//    lateinit var linearLayoutManager: LinearLayoutManager
+
+    fun getMyData() {
+        lateinit var myAdapter: MyAdapter
 
         val retrofitBuilder = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
@@ -22,6 +24,7 @@ open class ViewModel  : ViewModel() {
             .create(ApiInterface::class.java)
 
         val retrofitData = retrofitBuilder.getData()
+
 
         retrofitData.enqueue(object : Callback<List<MyDataItem>?> {
             override fun onResponse(call: Call<List<MyDataItem>?>, response: Response<List<MyDataItem>?>) {
