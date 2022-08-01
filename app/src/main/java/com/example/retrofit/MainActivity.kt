@@ -2,17 +2,15 @@ package com.example.retrofit
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log.d
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
-import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val Base_Url = "https://jsonplaceholder.typicode.com/"
+//const val Base_Url = "https://jsonplaceholder.typicode.com/"
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: ViewModel
 
@@ -24,9 +22,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this).get(ViewModel::class.java)
-//        recycleview_users.setHasFixedSize(true)
-//        linearLayoutManager = LinearLayoutManager(this)
-//        recycleview_users.layoutManager = linearLayoutManager
+        recycleview_users.setHasFixedSize(true)
+        linearLayoutManager = LinearLayoutManager(this)
+        recycleview_users.layoutManager = linearLayoutManager
 
         viewModel.getMyData()
     }
