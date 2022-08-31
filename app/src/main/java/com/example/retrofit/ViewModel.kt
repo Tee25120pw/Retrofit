@@ -15,7 +15,7 @@ open class ViewModel : ViewModel() {
 //    lateinit var linearLayoutManager: LinearLayoutManager
 
     fun getMyData() {
-        lateinit var myAdapter: MyAdapter
+//        lateinit var myAdapter: MyAdapter
 
         val retrofitBuilder = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
