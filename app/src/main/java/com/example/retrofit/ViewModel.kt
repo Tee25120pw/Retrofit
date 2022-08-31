@@ -1,4 +1,4 @@
-package com.example.retrofit
+package com.example.retrofit//package com.example.retrofit
 
 import android.util.Log.d
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +26,6 @@ open class ViewModel  : ViewModel() {
         retrofitData.enqueue(object : Callback<List<MyDataItem>?> {
             override fun onResponse(call: Call<List<MyDataItem>?>, response: Response<List<MyDataItem>?>) {
                 val responseBody = response.body()!!
-
                 myAdapter = MyAdapter(baseContext, responseBody)
                 myAdapter.notifyDataSetChanged()
                 recycleview_users.adapter = myAdapter
