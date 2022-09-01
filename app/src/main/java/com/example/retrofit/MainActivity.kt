@@ -15,7 +15,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var viewModel: ViewModel
     lateinit var myAdapter: MyAdapter
     lateinit var linearLayoutManager: LinearLayoutManager
 
@@ -23,12 +22,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel = ViewModelProvider(this).get(ViewModel::class.java)
         recycleview_users.setHasFixedSize(true)
         linearLayoutManager = LinearLayoutManager(this)
         recycleview_users.layoutManager = linearLayoutManager
 
-        viewModel.getMyData()
+        getMyData()
     }
 }
 
@@ -49,9 +47,9 @@ private fun getMyData() {
         ) {
             val responseBody = response.body()!!
 
-//            myAdapter = MyAdapter(baseContext, responseBody)
-//            myAdapter.notifyDataSetChanged()
-//            recycleview_users.adapter = myAdapter
+            var myAdapter = MyAdapter(baseContext, responseBody)
+            myAdapter.notifyDataSetChanged()
+            recycleview_users.adapter = myAdapter
         }
 
         override fun onFailure(call: Call<List<MyDataItem>?>, t: Throwable) {
