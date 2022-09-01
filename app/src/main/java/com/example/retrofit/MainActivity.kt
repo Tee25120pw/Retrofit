@@ -1,7 +1,6 @@
 import android.os.Bundle
 import android.util.Log.d
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.retrofit.ApiInterface
 import com.example.retrofit.MyAdapter
@@ -16,7 +15,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 
 const val Base_Url = "https://jsonplaceholder.typicode.com/"
-lateinit var myAdapter: MyAdapter
 lateinit var linearLayoutManager: LinearLayoutManager
 
 
@@ -32,7 +30,6 @@ class MainActivity : AppCompatActivity() {
 
         getMyData()
     }
-}
 
 private fun getMyData() {
     val retrofitBuilder = Retrofit.Builder()
@@ -59,4 +56,4 @@ private fun getMyData() {
             d("MainActivity", "onFailure: " + t.message)
         }
     })
-}
+}}
