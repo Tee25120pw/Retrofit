@@ -1,11 +1,9 @@
-package com.example.retrofit//package com.example.retrofit
+package com.example.retrofit
 
 import android.content.Context
 import android.util.Log.d
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
