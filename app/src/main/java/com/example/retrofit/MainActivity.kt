@@ -14,9 +14,13 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
+const val Base_Url = "https://jsonplaceholder.typicode.com/"
+lateinit var myAdapter: MyAdapter
+lateinit var linearLayoutManager: LinearLayoutManager
+
+
 class MainActivity : AppCompatActivity() {
-    lateinit var myAdapter: MyAdapter
-    lateinit var linearLayoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +44,6 @@ private fun getMyData() {
     val retrofitData = retrofitBuilder.getData()
 
     retrofitData.enqueue(object : Callback<List<MyDataItem>?> {
-
         override fun onResponse(
             call: Call<List<MyDataItem>?>,
             response: Response<List<MyDataItem>?>
