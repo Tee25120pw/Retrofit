@@ -4,10 +4,6 @@ import android.os.Bundle
 import android.util.Log.d
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.retrofit.ApiInterface
-import com.example.retrofit.MyAdapter
-import com.example.retrofit.MyDataItem
-import com.example.retrofit.R
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
