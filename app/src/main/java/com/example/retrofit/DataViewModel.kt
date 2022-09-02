@@ -10,8 +10,8 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-open class DataViewModel  : ViewModel() {
-    val Base_Url = "https://jsonplaceholder.typicode.com/"
+class DataViewModel  : ViewModel() {
+    private val Base_Url = "https://jsonplaceholder.typicode.com/"
     lateinit var myAdapter: MyAdapter
     fun getMyData(context:Context,rcv: RecyclerView) {
 
