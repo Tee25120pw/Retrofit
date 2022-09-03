@@ -6,6 +6,7 @@ import android.util.Log.d
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -18,7 +19,7 @@ class MainViewModel : ViewModel() {
     private val Base_Url = "https://jsonplaceholder.typicode.com/"
     lateinit var adapter : MyAdapter
 
-    fun getMyData(Context, rcv) {
+    fun getMyData(ontext:Context, rcv:RecyclerView) {
         val retrofitBuilder = Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .baseUrl(Base_Url)
@@ -34,7 +35,7 @@ class MainViewModel : ViewModel() {
             ) {
                 val responseBody = response.body()!!
 
-                var myAdapter = MyAdapter(Context, responseBody)
+                var myAdapter = MyAdapter(ontext, responseBody)
                 myAdapter.notifyDataSetChanged()
 
                 rcv.adapter = myAdapter
